@@ -14,14 +14,18 @@ public class Rover {
             return;
         }
 
-        if(direction.equals("N")) {
-            coordinates = coordinates.add(new Coordinates(0, 1));
-        } else if(direction.equals("E")){
-            coordinates = coordinates.add(new Coordinates(1, 0));
-        } else if(direction.equals("S")) {
-            coordinates = coordinates.add(new Coordinates(0, -1));
+        if(commandsSequence.equals("f")) {
+            if (direction.equals("N")) {
+                coordinates = coordinates.add(new Coordinates(0, 1));
+            } else if (direction.equals("E")) {
+                coordinates = coordinates.add(new Coordinates(1, 0));
+            } else if (direction.equals("S")) {
+                coordinates = coordinates.add(new Coordinates(0, -1));
+            } else {
+                coordinates = coordinates.add(new Coordinates(-1, 0));
+            }
         } else {
-            coordinates = coordinates.add(new Coordinates(-1, 0));
+            coordinates = coordinates.add(new Coordinates(0, -1));
         }
     }
 
