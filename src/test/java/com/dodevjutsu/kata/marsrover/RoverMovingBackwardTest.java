@@ -33,4 +33,13 @@ public class RoverMovingBackwardTest {
 
         assertThat(rover, is(aRoverAt(1, 6, "S")));
     }
+
+    @Test
+    public void when_facing_west() {
+        Rover rover = aRoverAt(3, 5, "W");
+
+        rover.receive("b");
+
+        assertThat(rover, is(aRoverAt(4, 5, "W")));
+    }
 }
