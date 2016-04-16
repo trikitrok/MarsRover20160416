@@ -1,9 +1,13 @@
 package com.dodevjutsu.kata.marsrover;
 
 public enum Direction {
-    NORTH;
+    NORTH, SOUTH;
 
     public static Direction pointingTo(String directioncode) {
-        return NORTH;
+        if(directioncode.equals("N")) {
+            return NORTH;
+        } else {
+            return SOUTH;
+        }
     }
 }
