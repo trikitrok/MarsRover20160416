@@ -2,6 +2,7 @@ package com.dodevjutsu.kata.marsrover;
 
 import org.junit.Test;
 
+import static com.dodevjutsu.kata.marsrover.RoverTestsHelpers.aRoverAt;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -13,9 +14,5 @@ public class RoverReceivingCommandsSequenceTest {
         rover.receive("");
 
         assertThat(rover, is(aRoverAt(1, 3, "N")));
-    }
-
-    private Rover aRoverAt(int x, int y, String direction) {
-        return new Rover(x, y, direction);
     }
 }

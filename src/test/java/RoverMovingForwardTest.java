@@ -1,6 +1,9 @@
 import com.dodevjutsu.kata.marsrover.Rover;
+
+import com.dodevjutsu.kata.marsrover.RoverTestsHelpers;
 import org.junit.Test;
 
+import static com.dodevjutsu.kata.marsrover.RoverTestsHelpers.aRoverAt;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -41,7 +44,4 @@ public class RoverMovingForwardTest {
         assertThat(rover, is(aRoverAt(8, 0, "W")));
     }
 
-    private Rover aRoverAt(int x, int y, String direction) {
-        return new Rover(x, y, direction);
-    }
 }
