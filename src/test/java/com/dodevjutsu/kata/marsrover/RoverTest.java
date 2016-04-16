@@ -32,4 +32,13 @@ public class RoverTest {
 
         assertThat(rover, is(new Rover(2, 3, "E")));
     }
+
+    @Test
+    public void moving_forward_when_facing_south() {
+        Rover rover = new Rover(5, 3, "S");
+
+        rover.receive("f");
+
+        assertThat(rover, is(new Rover(5, 2, "S")));
+    }
 }
