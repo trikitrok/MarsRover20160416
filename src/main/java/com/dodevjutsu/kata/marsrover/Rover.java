@@ -25,7 +25,11 @@ public class Rover {
                 coordinates = coordinates.add(new Coordinates(-1, 0));
             }
         } else {
-            coordinates = coordinates.add(new Coordinates(0, -1));
+            if(direction.equals("N")) {
+                coordinates = coordinates.add(new Coordinates(0, -1));
+            } else {
+                coordinates = coordinates.add(new Coordinates(-1, 0));
+            }
         }
     }
 
