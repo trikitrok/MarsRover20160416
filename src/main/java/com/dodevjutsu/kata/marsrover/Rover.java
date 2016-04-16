@@ -14,26 +14,19 @@ public class Rover {
             return;
         }
 
+        int displacement = -1;
         if(commandsSequence.equals("f")) {
-            if (direction.equals("N")) {
-                coordinates = coordinates.add(new Coordinates(0, 1));
-            } else if (direction.equals("E")) {
-                coordinates = coordinates.add(new Coordinates(1, 0));
-            } else if (direction.equals("S")) {
-                coordinates = coordinates.add(new Coordinates(0, -1));
-            } else {
-                coordinates = coordinates.add(new Coordinates(-1, 0));
-            }
+          displacement = 1;
+        }
+
+        if (direction.equals("N")) {
+            coordinates = coordinates.add(new Coordinates(0, displacement));
+        } else if (direction.equals("E")) {
+            coordinates = coordinates.add(new Coordinates(displacement, 0));
+        } else if (direction.equals("S")) {
+            coordinates = coordinates.add(new Coordinates(0, -displacement));
         } else {
-            if(direction.equals("N")) {
-                coordinates = coordinates.add(new Coordinates(0, -1));
-            } else if(direction.equals("E")){
-                coordinates = coordinates.add(new Coordinates(-1, 0));
-            } else if(direction.equals("S")){
-                coordinates = coordinates.add(new Coordinates(0, 1));
-            } else {
-                coordinates = coordinates.add(new Coordinates(1, 0));
-            }
+            coordinates = coordinates.add(new Coordinates(-displacement, 0));
         }
     }
 
