@@ -25,4 +25,13 @@ public class RoverRotatingRightTest {
 
         assertThat(rover, is(aRoverAt(0, 0, "S")));
     }
+
+    @Test
+    public void when_facing_south() {
+        Rover rover = aRoverAt(0, 0, "S");
+
+        rover.receive("r");
+
+        assertThat(rover, is(aRoverAt(0, 0, "W")));
+    }
 }
