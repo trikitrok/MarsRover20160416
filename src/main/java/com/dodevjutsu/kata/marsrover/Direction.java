@@ -1,29 +1,39 @@
 package com.dodevjutsu.kata.marsrover;
 
 public enum Direction {
-    NORTH, SOUTH, EAST, WEST;
+    NORTH {
+        @Override
+        public Coordinates move(Coordinates coordinates, int displacement) {
+            return coordinates.add(new Coordinates(0, displacement));
+        }
+    }, SOUTH {
+        @Override
+        public Coordinates move(Coordinates coordinates, int displacement) {
+            return coordinates.add(new Coordinates(0, -displacement));
+        }
+    }, EAST {
+        @Override
+        public Coordinates move(Coordinates coordinates, int displacement) {
+            return coordinates.add(new Coordinates(displacement, 0));
+        }
+    }, WEST {
+        @Override
+        public Coordinates move(Coordinates coordinates, int displacement) {
+            return coordinates.add(new Coordinates(-displacement, 0));
+        }
+    };
 
-    public static Direction pointingTo(String directioncode) {
-        if(directioncode.equals("N")) {
+    public static Direction pointingTo(String directionCode) {
+        if (directionCode.equals("N")) {
             return NORTH;
-        } else if (directioncode.equals("S")){
+        } else if (directionCode.equals("S")) {
             return SOUTH;
-        } else if(directioncode.equals("E")){
+        } else if (directionCode.equals("E")) {
             return EAST;
         } else {
             return WEST;
         }
     }
 
-    public Coordinates move(Coordinates coordinates, int displacement) {
-        if (this.equals(Direction.NORTH)) {
-            return coordinates.add(new Coordinates(0, displacement));
-        } else if (this.equals(Direction.EAST)) {
-            return coordinates.add(new Coordinates(displacement, 0));
-        } else if (this.equals(Direction.SOUTH)) {
-            return coordinates.add(new Coordinates(0, -displacement));
-        } else {
-            return coordinates.add(new Coordinates(-displacement, 0));
-        }
-    }
+    abstract public Coordinates move(Coordinates coordinates, int displacement);
 }
