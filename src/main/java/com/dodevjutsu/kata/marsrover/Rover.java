@@ -17,25 +17,25 @@ public class Rover {
         applyCommand(commandsSequence);
     }
 
-    private void applyCommand(String commandsSequence) {
-        if (commandsSequence.equals("r")) {
+    private void applyCommand(String commandCode) {
+        if (commandCode.equals("r")) {
             direction = direction.rotateRight();
-        } else if (commandsSequence.equals("l")) {
+        } else if (commandCode.equals("l")) {
             direction = direction.rotateLeft();
         } else {
-            move(commandsSequence);
+            move(commandCode);
         }
     }
 
-    private void move(String commandsSequence) {
-        int displacement = computeDisplacement(commandsSequence);
+    private void move(String commandCode) {
+        int displacement = computeDisplacement(commandCode);
         coordinates = direction.move(coordinates, displacement);
     }
 
-    private int computeDisplacement(String commandsSequence) {
+    private int computeDisplacement(String commandCode) {
         final int DISPLACEMENT_LENGTH = 1;
         int displacement = -DISPLACEMENT_LENGTH;
-        if (commandsSequence.equals("f")) {
+        if (commandCode.equals("f")) {
             displacement = DISPLACEMENT_LENGTH;
         }
         return displacement;
