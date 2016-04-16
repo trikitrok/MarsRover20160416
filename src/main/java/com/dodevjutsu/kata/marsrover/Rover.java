@@ -14,10 +14,7 @@ public class Rover {
             return;
         }
 
-        int displacement = -1;
-        if(commandsSequence.equals("f")) {
-          displacement = 1;
-        }
+        int displacement = computeDisplacement(commandsSequence);
 
         if (direction.equals("N")) {
             coordinates = coordinates.add(new Coordinates(0, displacement));
@@ -28,6 +25,14 @@ public class Rover {
         } else {
             coordinates = coordinates.add(new Coordinates(-displacement, 0));
         }
+    }
+
+    private int computeDisplacement(String commandsSequence) {
+        int displacement = -1;
+        if(commandsSequence.equals("f")) {
+          displacement = 1;
+        }
+        return displacement;
     }
 
     @Override
