@@ -13,6 +13,10 @@ public class Vector {
         return new Vector(direction.move(origin, displacement), direction);
     }
 
+    public Vector rotateRight() {
+        return new Vector(origin, direction.rotateRight());
+    }
+
     @Override
     public String toString() {
         return "Vector{" +

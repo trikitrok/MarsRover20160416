@@ -41,7 +41,7 @@ public class Rover {
     }
 
     private void rotateRight() {
-        this.vector = new Vector(vector.origin(), vector.direction().rotateRight());
+        this.vector = vector.rotateRight();
     }
 
     private void move(String commandCode) {
