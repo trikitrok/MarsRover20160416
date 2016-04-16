@@ -15,11 +15,7 @@ public class Rover {
         }
 
         if(commandsSequence.equals("r")) {
-            if(direction.equals(Direction.NORTH)) {
-                direction = Direction.EAST;
-            } else {
-                direction = Direction.SOUTH;
-            }
+            direction = direction.rotateRight();
         } else {
             move(commandsSequence);
         }
