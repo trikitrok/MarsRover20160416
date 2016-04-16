@@ -14,6 +14,10 @@ public class Rover {
             return;
         }
 
+        applyCommand(commandsSequence);
+    }
+
+    private void applyCommand(String commandsSequence) {
         if (commandsSequence.equals("r")) {
             direction = direction.rotateRight();
         } else if (commandsSequence.equals("l")) {
