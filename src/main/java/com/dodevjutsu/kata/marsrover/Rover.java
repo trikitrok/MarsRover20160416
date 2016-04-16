@@ -15,13 +15,13 @@ public class Rover {
         }
 
         if(direction.equals("N")) {
-            this.coordinates = coordinates.add(new Coordinates(0, 1));
+            coordinates = coordinates.add(new Coordinates(0, 1));
         } else if(direction.equals("E")){
-            this.coordinates = new Coordinates(coordinates.x() + 1, coordinates.y());
+            coordinates = coordinates.add(new Coordinates(1, 0));
         } else if(direction.equals("S")) {
-            this.coordinates = new Coordinates(coordinates.x(), coordinates.y() - 1);
+            coordinates = coordinates.add(new Coordinates(0, -1));
         } else {
-            this.coordinates = new Coordinates(coordinates.x() - 1, coordinates.y());
+            coordinates = coordinates.add(new Coordinates(-1, 0));
         }
     }
 

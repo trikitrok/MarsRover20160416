@@ -8,6 +8,11 @@ public class Coordinates {
         this.x = x;
         this.y = y;
     }
+    
+    public Coordinates add(Coordinates other) {
+        return new Coordinates(x + other.x, y + other.y);
+    }
+
 
     @Override
     public String toString() {
@@ -34,17 +39,5 @@ public class Coordinates {
         int result = x;
         result = 31 * result + y;
         return result;
-    }
-
-    public int y() {
-        return y;
-    }
-
-    public int x() {
-        return x;
-    }
-
-    public Coordinates add(Coordinates other) {
-        return new Coordinates(x + other.x, y + other.y);
     }
 }
