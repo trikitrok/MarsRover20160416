@@ -46,7 +46,7 @@ public class Rover {
 
     private void move(String commandCode) {
         int displacement = computeDisplacement(commandCode);
-        this.vector = new Vector(vector.direction().move(vector.origin(), displacement), vector.direction());
+        this.vector = vector.move(displacement);
     }
 
     private int computeDisplacement(String commandCode) {

@@ -9,6 +9,10 @@ public class Vector {
         this.direction = direction;
     }
 
+    public Vector move(int displacement) {
+        return new Vector(direction.move(origin, displacement), direction);
+    }
+
     @Override
     public String toString() {
         return "Vector{" +
