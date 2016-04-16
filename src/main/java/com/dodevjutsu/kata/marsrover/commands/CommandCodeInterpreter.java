@@ -2,37 +2,28 @@ package com.dodevjutsu.kata.marsrover.commands;
 
 import com.dodevjutsu.kata.marsrover.Command;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 public class CommandCodeInterpreter {
     private static final int DISPLACEMENT_LENGTH = 1;
+    private static Map<String, Command> knownCommands = knownCommands();
 
     public static Command interpret(String commandCode) {
-        if (isRightRotation(commandCode)) {
-            return new RightRotation();
-        } else if (isLeftRotation(commandCode)) {
-            return new LeftRotation();
-        } else if (isForwardMovement(commandCode)){
-            return new Movement(DISPLACEMENT_LENGTH);
-        }
-        else if (isBackwardMovement(commandCode)){
-            return new Movement(-DISPLACEMENT_LENGTH);
-        } else {
+        if(!knownCommands.containsKey(commandCode)) {
             return new UnknownCommand();
         }
+
+        return knownCommands.get(commandCode);
     }
 
-    private static boolean isForwardMovement(String commandCode) {
-        return commandCode.equals("f");
-    }
-
-    private static boolean isBackwardMovement(String commandCode) {
-        return commandCode.equals("b");
-    }
-
-    private static boolean isLeftRotation(String commandCode) {
-        return commandCode.equals("l");
-    }
-
-    private static boolean isRightRotation(String commandCode) {
-        return commandCode.equals("r");
+    private static Map<String, Command> knownCommands() {
+        Map<String, Command> knownCommands = new HashMap<>();
+        knownCommands.put("f", new Movement(DISPLACEMENT_LENGTH));
+        knownCommands.put("b", new Movement(-DISPLACEMENT_LENGTH));
+        knownCommands.put("r", new RightRotation());
+        knownCommands.put("l", new LeftRotation());
+        return Collections.unmodifiableMap(knownCommands);
     }
 }
