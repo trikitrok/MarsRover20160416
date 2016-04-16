@@ -1,12 +1,10 @@
 package com.dodevjutsu.kata.marsrover;
 
 public class Rover {
-    private Coordinates coordinates;
-    private Direction direction;
+    private Vector vector;
 
     public Rover(int x, int y, String directionCode) {
-        this.coordinates = new Coordinates(x, y);
-        this.direction = Direction.pointingTo(directionCode);
+        this.vector = new Vector( new Coordinates(x, y), Direction.pointingTo(directionCode));
     }
 
     public void receive(String commandsSequence) {
@@ -39,16 +37,16 @@ public class Rover {
     }
 
     private void rotateLeft() {
-        direction = direction.rotateLeft();
+        this.vector = new Vector(vector.origin(), vector.direction().rotateLeft());
     }
 
     private void rotateRight() {
-        direction = direction.rotateRight();
+        this.vector = new Vector(vector.origin(), vector.direction().rotateRight());
     }
 
     private void move(String commandCode) {
         int displacement = computeDisplacement(commandCode);
-        coordinates = direction.move(coordinates, displacement);
+        this.vector = new Vector(vector.direction().move(vector.origin(), displacement), vector.direction());
     }
 
     private int computeDisplacement(String commandCode) {
@@ -63,8 +61,7 @@ public class Rover {
     @Override
     public String toString() {
         return "Rover{" +
-            "direction='" + direction + '\'' +
-            ", coordinates=" + coordinates +
+            "vector=" + vector +
             '}';
     }
 
@@ -75,15 +72,12 @@ public class Rover {
 
         Rover rover = (Rover) o;
 
-        if (direction != null ? !direction.equals(rover.direction) : rover.direction != null) return false;
-        return coordinates != null ? coordinates.equals(rover.coordinates) : rover.coordinates == null;
+        return vector != null ? vector.equals(rover.vector) : rover.vector == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = direction != null ? direction.hashCode() : 0;
-        result = 31 * result + (coordinates != null ? coordinates.hashCode() : 0);
-        return result;
+        return vector != null ? vector.hashCode() : 0;
     }
 }
