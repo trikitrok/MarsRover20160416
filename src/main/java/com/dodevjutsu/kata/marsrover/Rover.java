@@ -18,7 +18,7 @@ public class Rover {
         if (isRightRotation(commandCode)) {
             this.vector = new RightRotation(). apply(vector);
         } else if (isLeftRotation(commandCode)) {
-            this.vector = vector.rotateLeft();
+            this.vector = new LeftRotation().apply(vector);
         } else {
             int displacement = computeDisplacement(commandCode);
             this.vector = vector.move(displacement);
