@@ -3,6 +3,7 @@ import com.dodevjutsu.kata.marsrover.Rover;
 import com.dodevjutsu.kata.marsrover.RoverTestsHelpers;
 import org.junit.Test;
 
+import static com.dodevjutsu.kata.marsrover.RoverBuilder.aRover;
 import static com.dodevjutsu.kata.marsrover.RoverTestsHelpers.aRoverAt;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -10,7 +11,7 @@ import static org.hamcrest.core.Is.is;
 public class RoverMovingForwardTest {
     @Test
     public void when_facing_north() {
-        Rover rover = aRoverAt(3, 6, "N");
+        Rover rover = aRover().at(3, 6).facing("N").build();
 
         rover.receive("f");
 
@@ -19,7 +20,7 @@ public class RoverMovingForwardTest {
 
     @Test
     public void when_facing_east() {
-        Rover rover = aRoverAt(1, 3, "E");
+        Rover rover = aRover().at(1, 3).facing("E").build();
 
         rover.receive("f");
 
@@ -28,7 +29,7 @@ public class RoverMovingForwardTest {
 
     @Test
     public void when_facing_south() {
-        Rover rover = aRoverAt(5, 3, "S");
+        Rover rover = aRover().at(5, 3).facing("S").build();
 
         rover.receive("f");
 
@@ -37,7 +38,7 @@ public class RoverMovingForwardTest {
 
     @Test
     public void when_facing_west() {
-        Rover rover = aRoverAt(9, 0, "W");
+        Rover rover = aRover().at(9, 0).facing("W").build();
 
         rover.receive("f");
 
