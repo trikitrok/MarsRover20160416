@@ -11,11 +11,18 @@ public class CommandCodeInterpreter {
     private static Map<String, Command> knownCommands = knownCommands();
 
     public static Command interpret(String commandCode) {
-        if(!knownCommands.containsKey(commandCode)) {
+        if(isAnUnknown(commandCode)) {
             return new UnknownCommand();
         }
+        return getCommandFor(commandCode);
+    }
 
+    private static Command getCommandFor(String commandCode) {
         return knownCommands.get(commandCode);
+    }
+
+    private static boolean isAnUnknown(String commandCode) {
+        return !knownCommands.containsKey(commandCode);
     }
 
     private static Map<String, Command> knownCommands() {
