@@ -47,12 +47,4 @@ public class Vector {
         result = 31 * result + (direction != null ? direction.hashCode() : 0);
         return result;
     }
-
-    public Coordinates origin() {
-        return origin;
-    }
-
-    public Direction direction() {
-        return direction;
-    }
 }
