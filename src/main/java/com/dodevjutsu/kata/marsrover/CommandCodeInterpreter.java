@@ -6,10 +6,24 @@ public class CommandCodeInterpreter {
             return new RightRotation();
         } else if (isLeftRotation(commandCode)) {
             return new LeftRotation();
-        } else {
+        } else if (isMovement(commandCode)){
             int displacement = getDisplacement(commandCode);
             return new Movement(displacement);
+        } else {
+            return new UnknownCommand();
         }
+    }
+
+    private static boolean isMovement(String commandCode) {
+        return isForwardMovement(commandCode) || isBackwardMovement(commandCode);
+    }
+
+    private static boolean isForwardMovement(String commandCode) {
+        return commandCode.equals("f");
+    }
+
+    private static boolean isBackwardMovement(String commandCode) {
+        return commandCode.equals("b");
     }
 
     private static boolean isLeftRotation(String commandCode) {

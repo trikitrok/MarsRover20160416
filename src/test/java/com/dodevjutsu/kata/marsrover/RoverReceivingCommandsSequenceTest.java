@@ -24,4 +24,13 @@ public class RoverReceivingCommandsSequenceTest {
 
         assertThat(rover, is(aRoverAt(2, -1, "E")));
     }
+
+    @Test
+    public void receiving_a_sequence_with_an_unknown_command() {
+        Rover rover = aRoverAt(0, 4, "S");
+
+        rover.receive("*");
+
+        assertThat(rover, is(aRoverAt(0, 4, "S")));
+    }
 }
