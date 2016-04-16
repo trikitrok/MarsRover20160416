@@ -1,8 +1,5 @@
 package com.dodevjutsu.kata.marsrover;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Rover {
     private Vector vector;
 
