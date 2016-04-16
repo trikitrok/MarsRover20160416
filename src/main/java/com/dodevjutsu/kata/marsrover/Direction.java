@@ -36,6 +36,11 @@ public enum Direction {
         public Coordinates move(Coordinates coordinates, int displacement) {
             return coordinates.add(new Coordinates(-displacement, 0));
         }
+
+        @Override
+        public Direction rotateRight() {
+            return Direction.NORTH;
+        }
     };
 
     public static Direction pointingTo(String directionCode) {
@@ -51,8 +56,5 @@ public enum Direction {
     }
 
     abstract public Coordinates move(Coordinates coordinates, int displacement);
-
-    public Direction rotateRight() {
-        return Direction.NORTH;
-    }
+    abstract public Direction rotateRight();
 }
