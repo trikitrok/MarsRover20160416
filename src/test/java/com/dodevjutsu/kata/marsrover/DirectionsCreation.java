@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class DirectionsCreationTest {
+public class DirectionsCreation {
 
     @Test
     public void direction_pointing_north(){

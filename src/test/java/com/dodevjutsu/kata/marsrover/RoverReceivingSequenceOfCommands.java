@@ -3,11 +3,11 @@ package com.dodevjutsu.kata.marsrover;
 import org.junit.Test;
 
 import static com.dodevjutsu.kata.marsrover.RoverBuilder.aRover;
-import static com.dodevjutsu.kata.marsrover.RoverTestsHelpers.locatedAt;
+import static com.dodevjutsu.kata.marsrover.test_helpers.RoverTestsHelpers.locatedAt;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class RoverReceivingCommandsSequenceTest {
+public class RoverReceivingSequenceOfCommands {
     @Test
     public void not_moving_when_receiving_an_empty_commands_sequence() {
         Rover rover = aRover().at(1, 3).facing("N").build();

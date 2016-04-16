@@ -3,11 +3,11 @@ import com.dodevjutsu.kata.marsrover.Rover;
 import org.junit.Test;
 
 import static com.dodevjutsu.kata.marsrover.RoverBuilder.aRover;
-import static com.dodevjutsu.kata.marsrover.RoverTestsHelpers.locatedAt;
+import static com.dodevjutsu.kata.marsrover.test_helpers.RoverTestsHelpers.locatedAt;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class RoverMovingForwardTest {
+public class RoverMovingForward {
     @Test
     public void when_facing_north() {
         Rover rover = aRover().at(3, 6).facing("N").build();
