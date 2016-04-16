@@ -1,6 +1,6 @@
 package com.dodevjutsu.kata.marsrover;
 
-public class Movement {
+public class Movement implements Command {
     private final int displacement;
 
     public Movement(int displacement) {

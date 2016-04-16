@@ -1,5 +1,8 @@
 package com.dodevjutsu.kata.marsrover;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Rover {
     private Vector vector;
 
@@ -8,16 +11,23 @@ public class Rover {
     }
 
     public void receive(String commandsSequence) {
+        List<Command> commands = new ArrayList<>();
+
         for (int i = 0; i < commandsSequence.length(); ++i) {
             String commandCode = commandsSequence.substring(i, i+1);
+
             if (isRightRotation(commandCode)) {
-                this.vector = new RightRotation(). apply(vector);
+                commands.add(new RightRotation());
             } else if (isLeftRotation(commandCode)) {
-                this.vector = new LeftRotation().apply(vector);
+                commands.add(new LeftRotation());
             } else {
                 int displacement = computeDisplacement(commandCode);
-                this.vector= new Movement(displacement).apply(vector);
+                commands.add(new Movement(displacement));
             }
+        }
+
+        for(Command command : commands) {
+            vector = command.apply(vector);
         }
     }
 
