@@ -2,7 +2,7 @@ package com.dodevjutsu.kata.marsrover;
 
 import org.junit.Test;
 
-import static com.dodevjutsu.kata.marsrover.RoverBuilder.aRover;
+import static com.dodevjutsu.kata.marsrover.test_helpers.RoverBuilder.aRover;
 import static com.dodevjutsu.kata.marsrover.test_helpers.RoverTestsHelpers.locatedAt;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
