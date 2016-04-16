@@ -8,11 +8,14 @@ public class Coordinates {
         this.x = x;
         this.y = y;
     }
-    
-    public Coordinates add(Coordinates other) {
-        return new Coordinates(x + other.x, y + other.y);
+
+    public Coordinates incrementX(int displacement) {
+        return new Coordinates(x + displacement, y);
     }
 
+    public Coordinates incrementY(int displacement) {
+        return new Coordinates(x, y + displacement);
+    }
 
     @Override
     public String toString() {

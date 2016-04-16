@@ -4,7 +4,7 @@ public enum Direction {
     NORTH {
         @Override
         public Coordinates move(Coordinates coordinates, int displacement) {
-            return coordinates.add(new Coordinates(0, displacement));
+            return coordinates.incrementY(displacement);
         }
 
         @Override
@@ -19,7 +19,7 @@ public enum Direction {
     }, SOUTH {
         @Override
         public Coordinates move(Coordinates coordinates, int displacement) {
-            return coordinates.add(new Coordinates(0, -displacement));
+            return coordinates.incrementY(-displacement);
         }
 
         @Override
@@ -35,7 +35,7 @@ public enum Direction {
     }, EAST {
         @Override
         public Coordinates move(Coordinates coordinates, int displacement) {
-            return coordinates.add(new Coordinates(displacement, 0));
+            return coordinates.incrementX(displacement);
         }
 
         @Override
@@ -50,7 +50,7 @@ public enum Direction {
     }, WEST {
         @Override
         public Coordinates move(Coordinates coordinates, int displacement) {
-            return coordinates.add(new Coordinates(-displacement, 0));
+            return coordinates.incrementX(-displacement);
         }
 
         @Override
