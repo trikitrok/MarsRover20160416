@@ -1,4 +1,6 @@
-package com.dodevjutsu.kata.marsrover;
+package com.dodevjutsu.kata.marsrover.commands;
+
+import com.dodevjutsu.kata.marsrover.Command;
 
 public class CommandCodeInterpreter {
     public static Command interpret(String commandCode) {

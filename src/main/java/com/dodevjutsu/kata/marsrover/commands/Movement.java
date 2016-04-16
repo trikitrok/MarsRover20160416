@@ -1,6 +1,9 @@
-package com.dodevjutsu.kata.marsrover;
+package com.dodevjutsu.kata.marsrover.commands;
 
-public class Movement implements Command {
+import com.dodevjutsu.kata.marsrover.Command;
+import com.dodevjutsu.kata.marsrover.Vector;
+
+class Movement implements Command {
     private final int displacement;
 
     public Movement(int displacement) {
