@@ -27,6 +27,11 @@ public enum Direction {
             return Direction.WEST;
         }
 
+        @Override
+        public Direction rotateLeft() {
+            return EAST;
+        }
+
     }, EAST {
         @Override
         public Coordinates move(Coordinates coordinates, int displacement) {
@@ -70,6 +75,6 @@ public enum Direction {
     abstract public Direction rotateRight();
 
     public Direction rotateLeft() {
-        return EAST;
+        return SOUTH;
     }
 }
