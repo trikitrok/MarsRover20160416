@@ -57,4 +57,8 @@ public enum Direction {
 
     abstract public Coordinates move(Coordinates coordinates, int displacement);
     abstract public Direction rotateRight();
+
+    public Direction rotateLeft() {
+        return WEST;
+    }
 }

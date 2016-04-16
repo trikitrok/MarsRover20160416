@@ -14,8 +14,10 @@ public class Rover {
             return;
         }
 
-        if(commandsSequence.equals("r")) {
+        if (commandsSequence.equals("r")) {
             direction = direction.rotateRight();
+        } else if (commandsSequence.equals("l")) {
+            direction = direction.rotateLeft();
         } else {
             move(commandsSequence);
         }
