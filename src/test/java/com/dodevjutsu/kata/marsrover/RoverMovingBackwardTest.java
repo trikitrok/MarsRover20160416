@@ -3,7 +3,7 @@ package com.dodevjutsu.kata.marsrover;
 import org.junit.Test;
 
 import static com.dodevjutsu.kata.marsrover.RoverBuilder.aRover;
-import static com.dodevjutsu.kata.marsrover.RoverTestsHelpers.aRoverAt;
+import static com.dodevjutsu.kata.marsrover.RoverTestsHelpers.locatedAt;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -14,7 +14,7 @@ public class RoverMovingBackwardTest {
 
         rover.receive("b");
 
-        assertThat(rover, is(aRoverAt(1, 4, "N")));
+        assertThat(rover, is(locatedAt(1, 4, "N")));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class RoverMovingBackwardTest {
 
         rover.receive("b");
 
-        assertThat(rover, is(aRoverAt(0, 5, "E")));
+        assertThat(rover, is(locatedAt(0, 5, "E")));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class RoverMovingBackwardTest {
 
         rover.receive("b");
 
-        assertThat(rover, is(aRoverAt(1, 6, "S")));
+        assertThat(rover, is(locatedAt(1, 6, "S")));
     }
 
     @Test
@@ -41,6 +41,6 @@ public class RoverMovingBackwardTest {
 
         rover.receive("b");
 
-        assertThat(rover, is(aRoverAt(4, 5, "W")));
+        assertThat(rover, is(locatedAt(4, 5, "W")));
     }
 }
