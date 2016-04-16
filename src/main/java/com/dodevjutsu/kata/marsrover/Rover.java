@@ -18,13 +18,29 @@ public class Rover {
     }
 
     private void applyCommand(String commandCode) {
-        if (commandCode.equals("r")) {
-            direction = direction.rotateRight();
-        } else if (commandCode.equals("l")) {
-            direction = direction.rotateLeft();
+        if (isRightRotation(commandCode)) {
+            rotateRight();
+        } else if (isLeftRotation(commandCode)) {
+            rotateLeft();
         } else {
             move(commandCode);
         }
+    }
+
+    private boolean isLeftRotation(String commandCode) {
+        return commandCode.equals("l");
+    }
+
+    private boolean isRightRotation(String commandCode) {
+        return commandCode.equals("r");
+    }
+
+    private void rotateLeft() {
+        direction = direction.rotateLeft();
+    }
+
+    private void rotateRight() {
+        direction = direction.rotateRight();
     }
 
     private void move(String commandCode) {
