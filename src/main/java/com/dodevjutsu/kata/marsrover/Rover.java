@@ -8,10 +8,6 @@ public class Rover {
     }
 
     public void receive(String commandsSequence) {
-        if (commandsSequence.equals("")) {
-            return;
-        }
-
         for (int i = 0; i < commandsSequence.length(); ++i) {
             String commandCode = commandsSequence.substring(i, i+1);
             applyCommand(commandCode);
