@@ -2,7 +2,7 @@ package com.dodevjutsu.kata.marsrover;
 
 public class Rover {
     private final int x;
-    private final int y;
+    private int y;
     private final String direction;
 
     public Rover(int x, int y, String direction) {
@@ -12,7 +12,10 @@ public class Rover {
     }
 
     public void receive(String commandsSequence) {
-
+        if (commandsSequence.equals("")) {
+            return;
+        }
+        y = y + 1;
     }
 
     @Override
