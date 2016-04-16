@@ -14,6 +14,10 @@ public class Rover {
             return;
         }
 
+        move(commandsSequence);
+    }
+
+    private void move(String commandsSequence) {
         int displacement = computeDisplacement(commandsSequence);
 
         if (direction.equals("N")) {
