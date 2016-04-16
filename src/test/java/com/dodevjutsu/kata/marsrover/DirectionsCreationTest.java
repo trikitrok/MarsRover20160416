@@ -21,4 +21,9 @@ public class DirectionsCreationTest {
     public void direction_pointing_east() {
         assertThat(Direction.pointingTo("E"), is(Direction.EAST));
     }
+
+    @Test
+    public void direction_pointing_west() {
+        assertThat(Direction.pointingTo("W"), is(Direction.WEST));
+    }
 }
