@@ -14,4 +14,16 @@ public enum Direction {
             return WEST;
         }
     }
+
+    public Coordinates move(Coordinates coordinates, int displacement) {
+        if (this.equals(Direction.NORTH)) {
+            return coordinates.add(new Coordinates(0, displacement));
+        } else if (this.equals(Direction.EAST)) {
+            return coordinates.add(new Coordinates(displacement, 0));
+        } else if (this.equals(Direction.SOUTH)) {
+            return coordinates.add(new Coordinates(0, -displacement));
+        } else {
+            return coordinates.add(new Coordinates(-displacement, 0));
+        }
+    }
 }
