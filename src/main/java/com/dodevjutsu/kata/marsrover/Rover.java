@@ -20,8 +20,10 @@ public class Rover {
             y = y + 1;
         } else if(direction.equals("E")){
             x = x + 1;
-        } else {
+        } else if(direction.equals("S")) {
             y = y - 1;
+        } else {
+            x = x - 1;
         }
     }
 
