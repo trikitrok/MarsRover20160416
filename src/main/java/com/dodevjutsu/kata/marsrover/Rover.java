@@ -1,7 +1,7 @@
 package com.dodevjutsu.kata.marsrover;
 
 public class Rover {
-    private final int x;
+    private int x;
     private int y;
     private final String direction;
 
@@ -15,7 +15,12 @@ public class Rover {
         if (commandsSequence.equals("")) {
             return;
         }
-        y = y + 1;
+
+        if(direction.equals("N")) {
+            y = y + 1;
+        } else {
+            x = x + 1;
+        }
     }
 
     @Override
