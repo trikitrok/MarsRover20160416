@@ -16,7 +16,7 @@ public class Rover {
 
     private void applyCommand(String commandCode) {
         if (isRightRotation(commandCode)) {
-            this.vector = vector.rotateRight();
+            this.vector = new RightRotation(). apply(vector);
         } else if (isLeftRotation(commandCode)) {
             this.vector = vector.rotateLeft();
         } else {
