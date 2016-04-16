@@ -29,9 +29,10 @@ public class Rover {
     }
 
     private int computeDisplacement(String commandsSequence) {
-        int displacement = -1;
+        final int DISPLACEMENT_LENGTH = 1;
+        int displacement = -DISPLACEMENT_LENGTH;
         if (commandsSequence.equals("f")) {
-            displacement = 1;
+            displacement = DISPLACEMENT_LENGTH;
         }
         return displacement;
     }
