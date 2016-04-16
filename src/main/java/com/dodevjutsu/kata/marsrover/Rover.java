@@ -9,32 +9,27 @@ public class Rover {
         this.coordinates = new Coordinates(x, y);
     }
 
-    private void setCoordinate(int x, int y) {
-        this.coordinates = new Coordinates(x, y);
-    }
-
     public void receive(String commandsSequence) {
         if (commandsSequence.equals("")) {
             return;
         }
 
         if(direction.equals("N")) {
-            setCoordinate(coordinates.x(), coordinates.y() +1);
+            this.coordinates = new Coordinates(coordinates.x(), coordinates.y() +1);
         } else if(direction.equals("E")){
-            setCoordinate(coordinates.x() + 1, coordinates.y());
+            this.coordinates = new Coordinates(coordinates.x() + 1, coordinates.y());
         } else if(direction.equals("S")) {
-            setCoordinate(coordinates.x(), coordinates.y() - 1);
+            this.coordinates = new Coordinates(coordinates.x(), coordinates.y() - 1);
         } else {
-            setCoordinate(coordinates.x() - 1, coordinates.y());
+            this.coordinates = new Coordinates(coordinates.x() - 1, coordinates.y());
         }
     }
 
     @Override
     public String toString() {
         return "Rover{" +
-            "x=" + coordinates.x() +
-            ", y=" + coordinates.y() +
-            ", direction='" + direction + '\'' +
+            "direction='" + direction + '\'' +
+            ", coordinates=" + coordinates +
             '}';
     }
 
@@ -45,17 +40,15 @@ public class Rover {
 
         Rover rover = (Rover) o;
 
-        if (coordinates.x() != rover.coordinates.x()) return false;
-        if (coordinates.y() != rover.coordinates.y()) return false;
-        return direction != null ? direction.equals(rover.direction) : rover.direction == null;
+        if (direction != null ? !direction.equals(rover.direction) : rover.direction != null) return false;
+        return coordinates != null ? coordinates.equals(rover.coordinates) : rover.coordinates == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = coordinates.x();
-        result = 31 * result + coordinates.y();
-        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        int result = direction != null ? direction.hashCode() : 0;
+        result = 31 * result + (coordinates != null ? coordinates.hashCode() : 0);
         return result;
     }
 }
