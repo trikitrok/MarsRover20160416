@@ -1,22 +1,12 @@
-package com.dodevjutsu.kata.marsrover;
-
+import com.dodevjutsu.kata.marsrover.Rover;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class RoverTest {
+public class RoverMovingForwardTest {
     @Test
-    public void not_moving_when_receiving_an_empty_commands_sequence() {
-        Rover rover = aRoverAt(1, 3, "N");
-
-        rover.receive("");
-
-        assertThat(rover, is(aRoverAt(1, 3, "N")));
-    }
-
-    @Test
-    public void moving_forward_when_facing_north() {
+    public void when_facing_north() {
         Rover rover = aRoverAt(3, 6, "N");
 
         rover.receive("f");
@@ -25,7 +15,7 @@ public class RoverTest {
     }
 
     @Test
-    public void moving_forward_when_facing_east() {
+    public void when_facing_east() {
         Rover rover = aRoverAt(1, 3, "E");
 
         rover.receive("f");
@@ -34,7 +24,7 @@ public class RoverTest {
     }
 
     @Test
-    public void moving_forward_when_facing_south() {
+    public void when_facing_south() {
         Rover rover = aRoverAt(5, 3, "S");
 
         rover.receive("f");
@@ -43,7 +33,7 @@ public class RoverTest {
     }
 
     @Test
-    public void moving_forward_when_facing_west() {
+    public void when_facing_west() {
         Rover rover = aRoverAt(9, 0, "W");
 
         rover.receive("f");
