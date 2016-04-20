@@ -1,5 +1,7 @@
-package com.dodevjutsu.kata.marsrover;
+package com.dodevjutsu.kata.marsrover.rover_tests;
 
+import com.dodevjutsu.kata.marsrover.Direction;
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -9,7 +11,7 @@ public class DirectionsCreation {
 
     @Test
     public void direction_pointing_north(){
-        assertThat(Direction.pointingTo("N"), is(Direction.NORTH));
+        MatcherAssert.assertThat(Direction.pointingTo("N"), is(Direction.NORTH));
     }
 
     @Test

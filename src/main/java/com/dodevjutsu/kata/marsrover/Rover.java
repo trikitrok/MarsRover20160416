@@ -1,10 +1,21 @@
 package com.dodevjutsu.kata.marsrover;
 
+import com.dodevjutsu.kata.marsrover.coordinates.FreeCoordinates;
+import com.dodevjutsu.kata.marsrover.coordinates.InWorldCoordinates;
+import com.dodevjutsu.kata.marsrover.worlds.InfiniteWorld;
+
 public class Rover {
     private Vector vector;
 
     public Rover(int x, int y, String directionCode) {
-        this.vector = new Vector(new Coordinates(x, y), Direction.pointingTo(directionCode));
+        this(x, y, directionCode, new InfiniteWorld());
+    }
+
+    public Rover(int x, int y, String directionCode, World world) {
+        this.vector = new Vector(
+            new InWorldCoordinates(new FreeCoordinates(x, y), world),
+            Direction.pointingTo(directionCode)
+        );
     }
 
     public void receive(String commandCodes) {
@@ -27,7 +38,6 @@ public class Rover {
         Rover rover = (Rover) o;
 
         return vector != null ? vector.equals(rover.vector) : rover.vector == null;
-
     }
 
     @Override

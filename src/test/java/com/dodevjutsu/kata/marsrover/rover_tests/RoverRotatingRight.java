@@ -1,5 +1,6 @@
-package com.dodevjutsu.kata.marsrover;
+package com.dodevjutsu.kata.marsrover.rover_tests;
 
+import com.dodevjutsu.kata.marsrover.Rover;
 import org.junit.Test;
 
 import static com.dodevjutsu.kata.marsrover.test_helpers.RoverBuilder.aRover;
