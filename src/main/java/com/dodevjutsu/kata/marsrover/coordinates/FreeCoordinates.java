@@ -1,6 +1,7 @@
 package com.dodevjutsu.kata.marsrover.coordinates;
 
 import com.dodevjutsu.kata.marsrover.Coordinates;
+import com.dodevjutsu.kata.marsrover.World;
 
 public class FreeCoordinates implements Coordinates {
     private final int x;
@@ -17,6 +18,11 @@ public class FreeCoordinates implements Coordinates {
 
     public Coordinates incrementY(int displacement) {
         return new FreeCoordinates(x, y + displacement);
+    }
+
+    @Override
+    public Coordinates wrapInto(World world) {
+        return new FreeCoordinates(world.wrapX(x), world.wrapY(y));
     }
 
     @Override

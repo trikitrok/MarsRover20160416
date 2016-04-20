@@ -14,18 +14,21 @@ public class InWorldCoordinates implements Coordinates {
 
     @Override
     public Coordinates incrementX(int displacement) {
-        return new InWorldCoordinates(
-            world.wrap(coordinates.incrementX(displacement)),
-            world
-        );
+        return wrapCoordinates(coordinates.incrementX(displacement));
     }
 
     @Override
     public Coordinates incrementY(int displacement) {
-        return new InWorldCoordinates(
-            world.wrap(coordinates.incrementY(displacement)),
-            world
-        );
+        return wrapCoordinates(coordinates.incrementY(displacement));
+    }
+
+    @Override
+    public Coordinates wrapInto(World world) {
+        return new InWorldCoordinates(coordinates.wrapInto(world), world);
+    }
+
+    private Coordinates wrapCoordinates(Coordinates coordinates) {
+        return new InWorldCoordinates(coordinates, world).wrapInto(world);
     }
 
     @Override
